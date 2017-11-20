@@ -39,6 +39,12 @@ public class ApolloClient {
       store.cacheKeyForObject = newValue
     }
   }
+    
+  public var prepareRequest: HTTPNetworkTransport.PrepareRequest? = nil {
+    didSet {
+      (networkTransport as? HTTPNetworkTransport)?.prepareRequest = prepareRequest
+    }
+  }
   
   private let queue: DispatchQueue
   private let operationQueue: OperationQueue
