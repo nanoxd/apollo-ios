@@ -55,7 +55,7 @@ public class HTTPNetworkTransport: NetworkTransport {
   
   let url: URL
   let session: URLSession
-  let prepareRequest: PrepareRequest?
+  var prepareRequest: PrepareRequest?
   let serializationFormat = JSONSerializationFormat.self
   
   /// Creates a network transport with the specified server URL and session configuration.
