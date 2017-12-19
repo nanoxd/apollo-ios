@@ -21,7 +21,7 @@ public struct GraphQLError: Error {
   
   /// A description of the error.
   public var message: String {
-    return self["message"] as! String
+    return self["message"] as? String ?? ""
   }
   
   /// A list of locations in the requested GraphQL document associated with the error.
@@ -37,8 +37,8 @@ public struct GraphQLError: Error {
     public let column: Int
     
     init(_ object: JSONObject) {
-      line = object["line"] as! Int
-      column = object["column"] as! Int
+      line = object["line"] as? Int ?? 0
+      column = object["column"] as? Int ?? 0
     }
   }
 }
